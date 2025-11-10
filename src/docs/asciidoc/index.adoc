@@ -1,0 +1,192 @@
+= Student Management REST API Documentation
+Rini Rayan <rini.rayan@example.com>
+:revnumber: 1.0.0
+:revdate: {localdate}
+:toc: left
+:toclevels: 3
+:sectnums:
+:doctype: book
+:source-highlighter: highlightjs
+:icons: font
+:snippets: ../../../target/snippets
+
+
+
+image::https://img.icons8.com/color/96/student-center.png[width=90, align="center"]
+
+NOTE: This documentation was automatically generated using *Spring REST Docs* by **Rini Rayan** 💫
+
+== 1️⃣ Create a Student
+This endpoint allows you to create a new student record.
+
+=== Request Example (JSON)
+```json
+{
+  "name": "Rini",
+  "email": "rini@example.com",
+  "course": "Spring Boot"
+}
+```
+
+=== Request Details
+include::{snippets}/students-create/http-request.adoc[]
+
+=== Response Example (JSON)
+```json
+{
+  "id": 1,
+  "name": "Rini",
+  "email": "rini@example.com",
+  "course": "Spring Boot"
+}
+```
+
+=== Response Details
+include::{snippets}/students-create/http-response.adoc[]
+
+---
+
+== 2️⃣ Get All Students
+Retrieves all registered students.
+
+=== Request
+[source,bash]
+----
+GET /students
+----
+
+include::{snippets}/students-list/http-request.adoc[]
+
+=== Response Example (JSON)
+```json
+[
+  {
+    "id": 1,
+    "name": "Rini",
+    "email": "rini@example.com",
+    "course": "Spring Boot"
+  }
+]
+```
+
+include::{snippets}/students-list/http-response.adoc[]
+
+---
+
+== 3️⃣ Get Student by ID
+Retrieves a single student’s details by ID.
+
+[source,bash]
+----
+GET /students/1
+----
+
+include::{snippets}/students-get/http-request.adoc[]
+include::{snippets}/students-get/http-response.adoc[]
+
+---
+
+== 4️⃣ Update Student
+Updates an existing student record.
+
+=== Request Example (JSON)
+```json
+{
+  "name": "Rini Rayan",
+  "email": "rini.rayan@example.com",
+  "course": "Spring Advanced"
+}
+```
+
+include::{snippets}/students-update/http-request.adoc[]
+include::{snippets}/students-update/http-response.adoc[]
+
+---
+
+== 5️⃣ Delete Student
+Deletes a student record by ID.
+
+[source,bash]
+----
+DELETE /students/1
+----
+
+include::{snippets}/students-delete/http-request.adoc[]
+include::{snippets}/students-delete/http-response.adoc[]
+
+---
+
+== 💡 Error Response Example
+```json
+{
+  "timestamp": "2025-11-08T17:10:00Z",
+  "message": "Student not found with id 99",
+  "status": 404
+}
+```
+
+---
+
+== ⚙️ API Info
+|===
+| Property | Value
+| Version | v{revnumber}
+| Generated On | {revdate}
+| Framework | Spring Boot 3.5.7
+| Author | Rini Rayan
+|===
+
+---
+
+[.text-center]
+== 💫 Footer
+© {revdate} — *Student Management API* built with **Rini Rayan**.
+_Auto-generated using Spring REST Docs._
+
+++++
+<style>
+/* 🌞 Light Theme for REST Docs */
+body {
+background-color: #ffffff;
+color: #333333;
+font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+line-height: 1.6;
+margin: 20px;
+}
+
+a, h1, h2, h3, h4 {
+color: #007acc !important;
+}
+
+code, pre {
+background: #f5f5f5;
+color: #000;
+padding: 8px;
+border-radius: 8px;
+font-family: "Consolas", "Courier New", monospace;
+}
+
+table {
+border: 1px solid #ddd;
+border-collapse: collapse;
+}
+
+table th, table td {
+padding: 8px 12px;
+border: 1px solid #ddd;
+}
+
+.note {
+  background: #e8f4fd;
+  border-left: 4px solid #007acc;
+  padding: 10px;
+}
+
+footer {
+margin-top: 40px;
+font-size: 13px;
+color: #777;
+text-align: center;
+}
+</style>
+++++
