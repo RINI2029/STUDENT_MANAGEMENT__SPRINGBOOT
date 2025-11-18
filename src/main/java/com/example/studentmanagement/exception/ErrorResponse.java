@@ -1,22 +1,26 @@
-package com.example.Studentmanagement.exception;
-
-import java.time.OffsetDateTime;
+package com.example.studentmanagement.exception;
 
 public class ErrorResponse {
+
     private String timestamp;
     private String message;
     private int status;
 
-    public ErrorResponse() {}
+    public ErrorResponse(int status, String message, long timestamp) {
+        this.status = status;
+        this.message = message;
+        this.timestamp = String.valueOf(timestamp);
+    }
 
-    public ErrorResponse(String timestamp, String message, int status)
-    {
+    public ErrorResponse(String timestamp, String message, int status) {
         this.timestamp = timestamp;
         this.message = message;
         this.status = status;
     }
 
-    public String getTimestamp() { return timestamp;}
+    // getters & setters
+
+    public String getTimestamp() { return timestamp; }
     public void setTimestamp(String timestamp) { this.timestamp = timestamp; }
 
     public String getMessage() { return message; }
